@@ -17,11 +17,7 @@ async function getUser(username) {
         try {
             db.collection("users").find({ username: username }).toArray(function (err, result) {
                 if (err) throw err;
-                if (result.length != 0) {
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
+                resolve(result);
             })
         } catch (err) {
             reject(err);
