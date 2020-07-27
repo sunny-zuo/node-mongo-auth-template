@@ -17,9 +17,9 @@ async function register(req, res) {
         return;
     }
     // check if user already exists
-    let userExists = await database.getUser(req.body.username);
+    let userExists = await database.getUser(req.body.username, req.body.email);
     if (userExists.length > 0) {
-        res.status(403).send({error: 'Username already exists'});
+        res.status(403).send({error: 'Username or email already exists'});
         return;
     }
 

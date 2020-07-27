@@ -12,10 +12,15 @@ mongoClient.connect((err, client) => {
     console.log('Successfully connected to database');
 })
 
-async function getUser(username) {
+async function getUser(username = null, email = null) {
     return new Promise((resolve, reject) => {
         try {
-            db.collection("users").find({ username: username }).toArray(function (err, result) {
+            db.collection("users").find({ 
+                "$or": [{
+                    username: username
+                }, {
+                    email: email  
+                }]}).toArray(function (err, result) {
                 if (err) throw err;
                 resolve(result);
             })
