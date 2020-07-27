@@ -15,15 +15,15 @@ mongoClient.connect((err, client) => {
 async function getUser(username = null, email = null) {
     return new Promise((resolve, reject) => {
         try {
-            db.collection("users").find({ 
+            db.collection("users").findOne({ 
                 "$or": [{
                     username: username
                 }, {
                     email: email  
-                }]}).toArray(function (err, result) {
+                }]}, function (err, result) {
                 if (err) throw err;
                 resolve(result);
-            })
+            });
         } catch (err) {
             reject(err);
         }
