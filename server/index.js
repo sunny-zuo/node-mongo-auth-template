@@ -6,6 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/users', require('./users/users'));
+app.use('/api', require('./api/api'));
 
 app.listen(8000, function() {
     console.log('Server listening on port 8000')
