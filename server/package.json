@@ -1,7 +1,7 @@
 {
   "name": "auth-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple implementation of an express server with JWT authentication and registration utilizing mongoDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

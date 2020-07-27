@@ -45,7 +45,7 @@ async function register(req, res) {
     });
 }
 
-async function authenticate(req, res, next) {
+async function authenticate(req, res) {
     // verify that request is valid
     if (!req.body.email || !req.body.password) {
         res.status(400).send({ error: 'Not all fields were complete'});

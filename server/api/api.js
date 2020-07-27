@@ -13,8 +13,13 @@ router.use((err, req, res, next) => {
     next();
 });
 
+router.get('/isloggedin', function (req, res) {
+    res.sendStatus(200);
+})
+
 router.get('/hello', function (req, res) {
     res.send({ message: `hello ${req.user.username}` })
 });
+
 
 module.exports = router;
